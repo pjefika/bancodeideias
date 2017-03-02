@@ -28,7 +28,7 @@ public class BaixaBa {
     private String cidade;
     private String ordem;
     private String fechamento1 ,fechamento2, fechamento3;
-    private StatusBaixa status;
+    private StatusBdi status;
     private Calendar data;
               
 
@@ -93,11 +93,11 @@ public class BaixaBa {
         this.fechamento3 = fechamento3;
     }
 
-    public StatusBaixa getStatus() {
+    public StatusBdi getStatus() {
         return status;
     }
 
-    public void setStatus(StatusBaixa status) {
+    public void setStatus(StatusBdi status) {
         this.status = status;
     }
 

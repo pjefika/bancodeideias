@@ -12,7 +12,7 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 import vraptor_suporten2.model.entities.BaixaBa;
 import vraptor_suporten2.model.entities.BaixaTt;
-import vraptor_suporten2.model.entities.StatusBaixa;
+import vraptor_suporten2.model.entities.StatusBdi;
 
 /**
  *
@@ -63,8 +63,8 @@ public class BaixaDAO extends AbstractDAO{
     public List<BaixaBa> listarporstatus(){
         try {
             Query query = this.entityManager.createQuery("FROM BaixaBa b WHERE b.status =:param1 OR b.status =:param2" );
-            query.setParameter("param1", StatusBaixa.ANALISE);
-            query.setParameter("param2", StatusBaixa.ENVIADO);
+            query.setParameter("param1", StatusBdi.ANALISE);
+            query.setParameter("param2", StatusBdi.ENVIADO);
 
             
             return query.getResultList();
@@ -76,8 +76,8 @@ public class BaixaDAO extends AbstractDAO{
     public List<BaixaTt> listarporstatus1(){
         try {
             Query query = this.entityManager.createQuery("FROM BaixaTt b WHERE b.status =:param1 OR b.status =:param2" );
-            query.setParameter("param1", StatusBaixa.ANALISE);
-            query.setParameter("param2", StatusBaixa.ENVIADO);
+            query.setParameter("param1", StatusBdi.ANALISE);
+            query.setParameter("param2", StatusBdi.ENVIADO);
 
             
             return query.getResultList();

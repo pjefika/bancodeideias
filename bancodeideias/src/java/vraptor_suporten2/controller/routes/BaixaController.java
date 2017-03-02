@@ -17,7 +17,7 @@ import javax.inject.Inject;
 import vraptor_suporten2.dal.BaixaDAO;
 import vraptor_suporten2.model.entities.BaixaBa;
 import vraptor_suporten2.model.entities.BaixaTt;
-import vraptor_suporten2.model.entities.StatusBaixa;
+import vraptor_suporten2.model.entities.StatusBdi;
 
 /**
  *
@@ -81,7 +81,7 @@ public class BaixaController extends AbstractCrudController {
 
             baixaba.setData(calendar);
 
-            baixaba.setStatus(StatusBaixa.ENVIADO);
+            baixaba.setStatus(StatusBdi.ENVIADO);
 
             this.baixaDAO.cadastrar(baixaba);
             result.include("mensagem", "Sucesso no cadastro");
@@ -100,7 +100,7 @@ public class BaixaController extends AbstractCrudController {
 
             baixatt.setData(calendar);
 
-            baixatt.setStatus(StatusBaixa.ENVIADO);
+            baixatt.setStatus(StatusBdi.ENVIADO);
 
             this.baixaDAO.cadastrar(baixatt);
             result.include("mensagem", "Sucesso no cadastro");
@@ -158,7 +158,7 @@ public class BaixaController extends AbstractCrudController {
     }
 
     public void status() {
-        result.include("todosStatus", StatusBaixa.values());
+        result.include("todosStatus", StatusBdi.values());
     }
 
     public void listar() {
@@ -170,10 +170,10 @@ public class BaixaController extends AbstractCrudController {
     @Path("baixa/backoffice/backlistba1/{id}")
     public void backlist(Long id) throws Exception {
         BaixaBa b = baixaDAO.buscaPorId(id);
-        b.setStatus(StatusBaixa.ANALISE);
+        b.setStatus(StatusBdi.ANALISE);
         baixaDAO.editar(b);
         result.include("resultado", b);
-        StatusBaixa[] listaBaixa = StatusBaixa.values();
+        StatusBdi[] listaBaixa = StatusBdi.values();
         result.include("StatusBaixa", listaBaixa);
 
     }

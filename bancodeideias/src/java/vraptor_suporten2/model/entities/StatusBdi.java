@@ -12,16 +12,16 @@ import java.util.List;
  *
  * @author G0025381
  */
-public enum StatusBaixa {
+public enum StatusBdi {
 
     ENVIADO("Enviado"),
     ANALISE("Em Análise"),
-    ENCERRADO("Encerrado"),
+    ENCERRADO("Aprovado"),
     NEGADO("Negado");
 
     private final String status;
 
-    private StatusBaixa(String valueStatus) {
+    private StatusBdi(String valueStatus) {
 
         status = valueStatus;
 
@@ -32,9 +32,9 @@ public enum StatusBaixa {
 
     }
 
-    public List<StatusBaixa> toList() {
-        List<StatusBaixa> a = new ArrayList<>();
-        for (StatusBaixa v : StatusBaixa.values()) {
+    public List<StatusBdi> toList() {
+        List<StatusBdi> a = new ArrayList<>();
+        for (StatusBdi v : StatusBdi.values()) {
             a.add(v);
         }
         return a;

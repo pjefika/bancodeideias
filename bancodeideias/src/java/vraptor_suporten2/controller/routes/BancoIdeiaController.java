@@ -6,19 +6,12 @@ package vraptor_suporten2.controller.routes;
  * and open the template in the editor.
  */
 import br.com.caelum.vraptor.Controller;
-import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.inject.Inject;
-import javax.transaction.Transactional;
 import vraptor_suporten2.dal.BancoIdeiasDAO;
-import vraptor_suporten2.model.entities.BancoDeIdeias.Addideia;
-import vraptor_suporten2.model.entities.BancoIdeias;
-
+import vraptor_suporten2.model.entities.BancoDeIdeias;
+import vraptor_suporten2.model.entities.StatusBdi;
 
 /**
  *
@@ -33,44 +26,58 @@ public class BancoIdeiaController extends AbstractCrudController {
     public BancoIdeiaController() {
     }
 
-    @Path("/bancodeideias/create/")
-    public void create() {
-
-    }
-    @Path("/bancodeideias/buscaideias/")
+    @Path("/buscaideias/")
     public void buscaideias() {
 
     }
 
-    
-    @Path("/bancodeideias/addideia/")
-    public void addideia() {
-
-    }
-   
-    @Path("/index/")
-    public void index() {
-
-    }
+//    @Path("/addideia/")
+//    public void addideia(BancoDeIdeias addbd) {
+//        
+//            }
     @Path("/edit/")
     public void edit() {
 
     }
 
-    @Path("/buscaideias/votos/")
+    @Path("/votos/")
     public void votos() {
 
     }
-//@Path("/bancodeideias/addideia/")
-//    public void create(Addideia addideia) {
+
+    @Path("/addideia/")
+    public void addideia() {
+        
+
+    }
+    
+    @Path ("/bancodeideias/addideia/")
+    public void cadastrarideia(BancoDeIdeias addbd) {
+        try {
+            
+            Calendar calendar = Calendar.getInstance();
+            addbd.setData(calendar);
+            addbd.setStatus(StatusBdi.ENVIADO);
+            this.result.redirectTo(BancoIdeiaController.class).addideia();
+            this.result.include("mensagem", "Cadastrado com sucesso");
+        } catch (Exception e) {
+            this.result.include("mensagemFalha", "Erro ao cadastras as informações.");
+        }
+    }
+}
+
+//
+//
+//@Path("/baixa/adicionar/ba/")
+//    public void create(BaixaBa baixaba) {
 //        try {
 //            //this.result.include("mensagem", "Cadastro Baixa Off Line");
 //
 //            Calendar calendar = Calendar.getInstance();
 //
-//            addideia.setData(calendar);
+//            baixaba.setData(calendar);
 //
-//            addideia.setStatus(StatusIdeia.ENVIADO);
+//            baixaba.setStatus(StatusBaixa.ENVIADO);
 //
 //            this.baixaDAO.cadastrar(baixaba);
 //            result.include("mensagem", "Sucesso no cadastro");
@@ -79,4 +86,17 @@ public class BancoIdeiaController extends AbstractCrudController {
 //            result.include("mensagemFalha", ex.getMessage());
 //        }
 //    }
-}
+//
+////
+////public void cadastrarideia(BancoDeIdeias addbd) {
+////        try {
+////            this.bancodeideias.cadastrar(addbd);
+////            Calendar calendar = Calendar.getInstance();
+////            addbd.setData(calendar);
+////            addbd.setStatus(StatusBdi.ENVIADO);
+////            this.result.redirectTo(BancoIdeiaController.class).addideia();
+////            this.result.include("mensagem", "Cadastrado com sucesso");
+////        } catch (Exception e) {
+////            this.result.include("mensagemFalha", "Erro ao cadastras as informações.");
+////        }
+////    }

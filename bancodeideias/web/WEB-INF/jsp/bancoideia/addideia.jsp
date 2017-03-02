@@ -11,7 +11,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>JSP Page</title>
 </head>
-<form action="${linkTo[BancoIdeiaController].addideia}" method="post" style="width: 100%;">
+<form action="${linkTo[BancoIdeiaController].cadastrarideia}" method="post" style="width: 100%;">
+    
 
 <!--<form action="<c:url value='/bancodeideias/addideia/'/>">-->
     <div class="row">
@@ -27,7 +28,7 @@
                            class="form-control" 
                            id="nome" 
                            placeholder="Colaborador"
-                           name="BancoDeIdeias.nome">
+                           name="addbd.colaborador">
                 </div>
         </div> 
 
@@ -39,35 +40,35 @@
                    class="form-control" 
                    id="supervisor" 
                    placeholder="Nome do Supervisor"
-                   name="BancoDeIdeias.supervisor">
+                   name="addbd.supervisor">
         </div>
 
         <div class="form-group">
             <label>
                 Descreva sua idéia detalhadamente.
             </label>
-            <textarea cols="76" rows="10" id="ideia" class="form-control" placeholder="Descreva sua idéia detalhadamente." name="BancoDeIdeias.ideia"></textarea>
+            <textarea cols="76" rows="10" id="ideia" class="form-control" placeholder="Descreva sua idéia detalhadamente." name="addbd.ideia"></textarea>
 
         </div>
         <div class="form-group">
             <label>
                 O que deverá ser realizado para que a sua idéia seja implantada?
             </label>
-            <textarea cols="76" rows="4" id="implantar" class="form-control" placeholder="O que deverá ser realizado para que a sua idéia seja implantada?" name="BancoDeIdeias.implantar"></textarea>
+            <textarea cols="76" rows="4" id="implantar" class="form-control" placeholder="O que deverá ser realizado para que a sua idéia seja implantada?" name="addbd.implantar"></textarea>
 
         </div>
         <div class="form-group">
             <label>
                 A sua idéia irá proporcionar ganhos nos indicadores operacionais do CO? Detalhe quais são:
             </label>
-            <textarea cols="76" rows="4" id="ganhos" class="form-control" placeholder="A sua idéia irá proporcionar ganhos nos indicadores operacionais do CO? Detalhe quais são:" name="BancoDeIdeias.ganhos"></textarea>
+            <textarea cols="76" rows="4" id="ganhos" class="form-control" placeholder="A sua idéia irá proporcionar ganhos nos indicadores operacionais do CO? Detalhe quais são:" name="addbd.ganhos"></textarea>
 
         </div>
         <div class="form-group">
             <label>
                 Será necessário alteração nos processos e ferramentas de atendimento? Descreva quais?
             </label>
-            <textarea cols="76" rows="4" id="processos" class="form-control" placeholder="Será necessário alteração nos processos e ferramentas de atendimento? Descreva quais?" name="BancoDeIdeias.processos"></textarea>
+            <textarea cols="76" rows="4" id="processos" class="form-control" placeholder="Será necessário alteração nos processos e ferramentas de atendimento? Descreva quais?" name="addbd.processos"></textarea>
 
         </div>
 
@@ -88,7 +89,7 @@
                class="form-control" 
                id="login" 
                placeholder="Login"
-               name="m.login">
+               name="addbd.login">
     </div>
 </div>
 <div class="col-md-3">
@@ -101,7 +102,7 @@
                class="form-control" 
                id="equipe" 
                placeholder="Equipe de atuação"
-               name="m.equipe">
+               name="addbd.equipe">
     </div>
 
 </div>

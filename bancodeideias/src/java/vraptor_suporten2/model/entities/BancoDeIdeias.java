@@ -5,20 +5,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 
+@Entity
+@Table(name = "bancoideias")
 public class BancoDeIdeias {
 
+    @Id
+    @GeneratedValue
+    private Long id;
     private String colaborador;
     private String supervisor;
     private String equipe;
     private String login;
-    private String id;
     private String ideia;
     private String implantar;
     private String ganhos;
     private String processos;
-    private String status;
+    private StatusBdi status;
     private Calendar data;
 
     public String getColaborador() {
@@ -53,11 +56,11 @@ public class BancoDeIdeias {
         this.login = login;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -93,16 +96,20 @@ public class BancoDeIdeias {
         this.processos = processos;
     }
 
-    public String getStatus() {
+    public StatusBdi getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(StatusBdi status) {
         this.status = status;
     }
 
     public Calendar getData() {
         return data;
+    }
+
+    public void setData(Calendar data) {
+        this.data = data;
     }
 
     public static class Addideia {
@@ -112,4 +119,5 @@ public class BancoDeIdeias {
     }
 
     
+
 }

@@ -38,12 +38,12 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="${linkTo[BancoIdeiaController].create}">Banco de Idéias CO</a>
+				<a class="navbar-brand" href="${linkTo[HomeController].index}">Banco de Idéias CO</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 				
-					<li><a href="${linkTo[BancoIdeiaController].create}">HOME</a></li>
+					<li><a href="${linkTo[HomeController].index}">HOME</a></li>
 						
 							<li><a href="${linkTo[BancoIdeiaController].addideia}">CADASTRE A SUA IDEIA</a></li>
                                                         <li><a href="${linkTo[BancoIdeiaController].buscaideias}">IDEIAS CADASTRADAS</a></li>

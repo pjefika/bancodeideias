@@ -28,7 +28,7 @@ public class BaixaTt {
     private String dabertura;
     private String dfechamento;
     private String codfechamento;
-    private StatusBaixa status;
+    private StatusBdi status;
     private Calendar data;
             
 
@@ -71,11 +71,11 @@ public class BaixaTt {
         this.codfechamento = codfechamento;
     }
 
-    public StatusBaixa getStatus() {
+    public StatusBdi getStatus() {
         return status;
     }
 
-    public void setStatus(StatusBaixa status) {
+    public void setStatus(StatusBdi status) {
         this.status = status;
     }
 
