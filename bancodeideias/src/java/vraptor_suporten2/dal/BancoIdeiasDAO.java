@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 import vraptor_suporten2.model.entities.BancoDeIdeias;
+import vraptor_suporten2.model.entities.StatusBdi;
 
 
 /**
@@ -23,7 +24,7 @@ public class BancoIdeiasDAO extends AbstractDAO{
     }
 
     @Transactional
-    public void cadastrar (cadIdeia cadideia) throws Exception {
+    public void cadastrar (BancoDeIdeias cadideia) throws Exception {
         try {
             this.entityManager.persist(cadideia);
         } catch (Exception e) {
@@ -34,7 +35,7 @@ public class BancoIdeiasDAO extends AbstractDAO{
     
     
     @Transactional
-    public void editar(cadIdeia cadideia) throws Exception {
+    public void editar(BancoDeIdeias cadideia) throws Exception {
         try {
             this.entityManager.merge(cadideia);
         } catch (Exception e) {
@@ -43,7 +44,7 @@ public class BancoIdeiasDAO extends AbstractDAO{
     }
 
     @Transactional
-    public void excluir(cadIdeia cadideia) throws Exception {
+    public void excluir(BancoDeIdeias cadideia) throws Exception {
         try {
             this.entityManager.remove(this.entityManager.merge(cadideia));
         } catch (Exception e) {
@@ -51,13 +52,31 @@ public class BancoIdeiasDAO extends AbstractDAO{
         }
     }
     @Transactional
-    public List<cadIdeia> listarporstatus(){
+    public List<BancoDeIdeias> listarporstatus(StatusBdi status){
         try {
-            Query query = this.entityManager.createQuery("FROM cadIdeia b WHERE b.status =:param1 OR b.status =:param2 =:param3 OR b.status =:param4" );
-            query.setParameter("param1", cadIdeia.ANALISE);
-            query.setParameter("param2", cadIdeia.ENVIADO);
-            query.setParameter("param3", cadIdeia.APROVADA);
-            query.setParameter("param4", cadIdeia.NEGADA);
+            Query query = this.entityManager.createQuery("FROM BancoDeIdeias b WHERE b.status =:param1" );
+            query.setParameter("param1", status);           
+            
+            return query.getResultList();
+        } catch (Exception e) {
+            return new ArrayList<>();
+        }
+    }
+    @Transactional
+    public BancoDeIdeias listarporstatus(Integer id){
+        try {
+            Query query = this.entityManager.createQuery("FROM BancoDeIdeias b WHERE b.id =:param1" );
+            query.setParameter("param1", id);           
+            
+            return  (BancoDeIdeias) query.getSingleResult();
+        } catch (Exception e) {
+            return new BancoDeIdeias();
+        }
+    }
+    @Transactional
+    public List<BancoDeIdeias> listarporstatusTodos(){
+        try {
+            Query query = this.entityManager.createQuery("FROM BancoDeIdeias b " );
 
             
             return query.getResultList();
@@ -66,16 +85,18 @@ public class BancoIdeiasDAO extends AbstractDAO{
         }
     }
     
-     
-    public cadIdeia buscaPorId(Long Id){
+      @Transactional
+    public BancoDeIdeias buscaPorId(Long Id){
         try {
-            Query query = this.entityManager.createQuery("FROM cadIdeia b WHERE b.id =:param1" );
+            Query query = this.entityManager.createQuery("FROM BancoDeIdeias b WHERE b.id =:param1" );
             query.setParameter("param1", Id);
                       
-            return (cadIdeia) query.getSingleResult();
+            return (BancoDeIdeias) query.getSingleResult();
         } catch (Exception e) {
             return null;
         }
     }
+
+    
     
 }

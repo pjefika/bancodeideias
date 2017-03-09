@@ -1,5 +1,4 @@
 package vraptor_suporten2.model.entities;
-
 import java.util.Calendar;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,6 +22,10 @@ public class BancoDeIdeias {
     private String processos;
     private StatusBdi status;
     private Calendar data;
+    private String titulo;
+
+    public BancoDeIdeias() {
+    }
 
     public String getColaborador() {
         return colaborador;
@@ -30,6 +33,14 @@ public class BancoDeIdeias {
 
     public void setColaborador(String colaborador) {
         this.colaborador = colaborador;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public String getSupervisor() {
@@ -110,12 +121,6 @@ public class BancoDeIdeias {
 
     public void setData(Calendar data) {
         this.data = data;
-    }
-
-    public static class Addideia {
-
-        public Addideia() {
-        }
     }
 
     

@@ -23,9 +23,7 @@
 	src="${pageContext.request.contextPath}/resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 	
 
-<decorator:head/>
-</head>
-<body>
+
 	<!-- Jóvi -->
 	<!-- Fixed navbar -->
 	<nav class="navbar navbar-default navbar-fixed-top">
@@ -47,6 +45,7 @@
 						
 							<li><a href="${linkTo[BancoIdeiaController].addideia}">CADASTRE A SUA IDEIA</a></li>
                                                         <li><a href="${linkTo[BancoIdeiaController].buscaideias}">IDEIAS CADASTRADAS</a></li>
+                                                        <li><a href="${linkTo[BancoIdeiaController].painel}">PAINEL</a></li>
                                </ul>
 				<ul class="nav navbar-nav navbar-right">
 				

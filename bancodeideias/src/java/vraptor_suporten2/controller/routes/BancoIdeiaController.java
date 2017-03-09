@@ -7,7 +7,9 @@ package vraptor_suporten2.controller.routes;
  */
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
+import br.com.caelum.vraptor.view.Results;
 import java.util.Calendar;
+import java.util.List;
 import javax.inject.Inject;
 import vraptor_suporten2.dal.BancoIdeiasDAO;
 import vraptor_suporten2.model.entities.BancoDeIdeias;
@@ -26,11 +28,6 @@ public class BancoIdeiaController extends AbstractCrudController {
     public BancoIdeiaController() {
     }
 
-    @Path("/buscaideias/")
-    public void buscaideias() {
-
-    }
-
 //    @Path("/addideia/")
 //    public void addideia(BancoDeIdeias addbd) {
 //        
@@ -47,22 +44,48 @@ public class BancoIdeiaController extends AbstractCrudController {
 
     @Path("/addideia/")
     public void addideia() {
-        
 
     }
+
     
-    @Path ("/bancodeideias/addideia/")
+
+    @Path("/bancodeideias/addideia/")
     public void cadastrarideia(BancoDeIdeias addbd) {
         try {
-            
+
             Calendar calendar = Calendar.getInstance();
             addbd.setData(calendar);
             addbd.setStatus(StatusBdi.ENVIADO);
-            this.result.redirectTo(BancoIdeiaController.class).addideia();
-            this.result.include("mensagem", "Cadastrado com sucesso");
+            this.bancodeideias.cadastrar(addbd);
+            result.redirectTo(BancoIdeiaController.class).buscaideias();
+//            this.result.include("mensagem", "Cadastrado com sucesso");
         } catch (Exception e) {
+            e.printStackTrace();
             this.result.include("mensagemFalha", "Erro ao cadastras as informações.");
+//           this.result.redirectTo(BancoIdeiaController.class).buscaideias();
         }
+    }
+
+    @Path("/bancoIdeia/buscaideias")
+    public void buscaideias() {
+        List<BancoDeIdeias> l = this.bancodeideias.listarporstatus(StatusBdi.ANALISE);
+        System.out.println(l.size());
+
+        this.result.include("status", l);
+    }
+    
+    @Path("/bancoIdeia/painel/")
+    public void painel() {
+        List<BancoDeIdeias> l = this.bancodeideias.listarporstatusTodos();
+        System.out.println(l.size());
+
+        this.result.include("status", l);
+    }
+    
+     @Path("/bancoIdeia/paineledit/{id}")
+    public void paineledit(Long id) {
+        BancoDeIdeias l = this.bancodeideias.buscaPorId(id);
+        this.result.include("status", l);
     }
 }
 
