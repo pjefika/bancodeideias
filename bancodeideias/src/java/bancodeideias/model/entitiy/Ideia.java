@@ -14,6 +14,9 @@ public class Ideia extends AbstractEntity {
     @NotEmpty
     private String loginCriador;
 
+    @NotEmpty
+    private String titulo;
+
     @Lob
     @NotEmpty
     private String descricao;
@@ -79,6 +82,14 @@ public class Ideia extends AbstractEntity {
 
     public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
 }
