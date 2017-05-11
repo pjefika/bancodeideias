@@ -8,17 +8,18 @@ package br.net.gvt.efika.bancodeideias.test;
 import bancodeideias.dal.IdeiaDAO;
 import bancodeideias.model.entitiy.Ideia;
 import bancodeideias.model.entitiy.InterfaceDAO;
+import java.util.List;
 import org.junit.*;
 
 /**
  *
  * @author G0042204
  */
-public class CadastreSuaIdeiaJUnitTest {
+public class IdeiasCastradasJUnitTest {
 
     private InterfaceDAO<Ideia> dao;
 
-    public CadastreSuaIdeiaJUnitTest() {
+    public IdeiasCastradasJUnitTest() {
     }
 
     @BeforeClass
@@ -27,7 +28,6 @@ public class CadastreSuaIdeiaJUnitTest {
 
     @AfterClass
     public static void tearDownClass() {
-
     }
 
     @Before
@@ -40,24 +40,16 @@ public class CadastreSuaIdeiaJUnitTest {
     }
 
     @Test
-    public void cadastreSuaIdeia() {
+    public void ideiasCastradas() {
 
         try {
-            Ideia i = new Ideia();
-
-            i.setDescComo("Como");
-            i.setDescricao("Desc");
-            i.setGanhos("Ganhos");
-            i.setLoginCriador("G0042204");
-
-            i = dao.cadastrar(i);
-
-            Assert.assertTrue(i.getId() != null);
-            System.out.println(i.getId());
-
+            List<Ideia> lst = dao.listar();
+            for (Ideia ideia : lst) {
+                System.out.println(ideia.getDescricao());
+            }
+            Assert.assertTrue(!lst.isEmpty());
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
