@@ -7,7 +7,7 @@ package br.net.gvt.efika.bancodeideias.test;
 
 import bancodeideias.dal.IdeiaDAO;
 import bancodeideias.model.entitiy.Ideia;
-import bancodeideias.model.entitiy.InterfaceDAO;
+import bancodeideias.dal.InterfaceDAO;
 import org.junit.*;
 
 /**

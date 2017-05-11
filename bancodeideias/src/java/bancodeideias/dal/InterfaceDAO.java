@@ -1,5 +1,6 @@
-package bancodeideias.model.entitiy;
+package bancodeideias.dal;
 
+import bancodeideias.model.viewmodel.Relatorio;
 import java.util.List;
 
 public interface InterfaceDAO<T> {
@@ -11,5 +12,7 @@ public interface InterfaceDAO<T> {
     public void excluir(T t);
 
     public List<T> listar();
+
+    public List<T> listar(Relatorio r);
 
 }

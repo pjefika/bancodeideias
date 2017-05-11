@@ -6,7 +6,7 @@
 package bancodeideias.dal;
 
 import bancodeideias.model.entitiy.Ideia;
-import bancodeideias.model.entitiy.InterfaceDAO;
+import bancodeideias.model.viewmodel.Relatorio;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -55,4 +55,23 @@ public class IdeiaDAO extends AbstractDAO implements InterfaceDAO<Ideia> {
         }
     }
 
+    @Override
+    public List<Ideia> listar(Relatorio r) {
+        try {
+            Query query = this.entityManager.createQuery("FROM Ideia i WHERE i.dataCadastro BETWEEN :param1 AND :param2 ORDER BY i.dataCadastro DESC");
+
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(r.getDataFinal());
+            cal.add(Calendar.HOUR, 23);
+            cal.add(Calendar.MINUTE, 59);
+            cal.add(Calendar.SECOND, 59);
+
+            query.setParameter("param1", r.getDataInicio());
+            query.setParameter("param2", cal.getTime());
+
+            return query.getResultList();
+        } catch (Exception e) {
+            return new ArrayList<Ideia>();
+        }
+    }
 }

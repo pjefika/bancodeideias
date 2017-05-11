@@ -6,8 +6,10 @@
 package br.net.gvt.efika.bancodeideias.test;
 
 import bancodeideias.dal.IdeiaDAO;
-import bancodeideias.model.entitiy.Ideia;
 import bancodeideias.dal.InterfaceDAO;
+import bancodeideias.model.entitiy.Ideia;
+import bancodeideias.model.viewmodel.Relatorio;
+import java.util.Calendar;
 import java.util.List;
 import org.junit.*;
 
@@ -15,11 +17,11 @@ import org.junit.*;
  *
  * @author G0042204
  */
-public class IdeiasCastradasJUnitTest {
+public class ExportarIdeiasJUnitTest {
 
     private InterfaceDAO<Ideia> dao;
 
-    public IdeiasCastradasJUnitTest() {
+    public ExportarIdeiasJUnitTest() {
     }
 
     @BeforeClass
@@ -40,10 +42,20 @@ public class IdeiasCastradasJUnitTest {
     }
 
     @Test
-    public void ideiasCastradas() {
+    public void exportarIdeias() {
 
         try {
-            List<Ideia> lst = dao.listar();
+
+            Calendar cal = Calendar.getInstance();
+            cal.add(Calendar.HOUR, 0);
+            cal.add(Calendar.MINUTE, 0);
+            cal.add(Calendar.SECOND, 0);
+
+            Relatorio r = new Relatorio();
+            r.setDataInicio(cal.getTime());
+            r.setDataFinal(Calendar.getInstance().getTime());
+
+            List<Ideia> lst = dao.listar(r);
             for (Ideia ideia : lst) {
                 System.out.println(ideia.getDescricao());
             }
