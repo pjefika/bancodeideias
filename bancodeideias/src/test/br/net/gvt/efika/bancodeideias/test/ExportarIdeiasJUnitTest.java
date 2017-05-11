@@ -47,9 +47,11 @@ public class ExportarIdeiasJUnitTest {
         try {
 
             Calendar cal = Calendar.getInstance();
-            cal.add(Calendar.HOUR, 0);
-            cal.add(Calendar.MINUTE, 0);
-            cal.add(Calendar.SECOND, 0);
+            cal.set(Calendar.HOUR, 0);
+            cal.set(Calendar.MINUTE, 0);
+            cal.set(Calendar.SECOND, 0);
+//            System.out.println(cal.getTime());
+//            System.out.println(Calendar.getInstance().getTime());
 
             Relatorio r = new Relatorio();
             r.setDataInicio(cal.getTime());

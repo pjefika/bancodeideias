@@ -1,10 +1,9 @@
 package bancodeideias.model.entitiy;
 
-import java.util.Calendar;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -27,9 +26,8 @@ public class Ideia extends AbstractEntity {
     @NotEmpty
     private String descComo;
 
-    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     @NotNull
-    private Calendar dataCadastro;
+    private Date dataCadastro;
 
 //    private List<Curtida> curtidas;
     public Ideia() {
@@ -75,11 +73,11 @@ public class Ideia extends AbstractEntity {
 //    public void setCurtidas(List<Curtida> curtidas) {
 //        this.curtidas = curtidas;
 //    }
-    public Calendar getDataCadastro() {
+    public Date getDataCadastro() {
         return dataCadastro;
     }
 
-    public void setDataCadastro(Calendar dataCadastro) {
+    public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
 

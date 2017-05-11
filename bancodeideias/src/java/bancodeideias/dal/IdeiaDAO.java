@@ -26,7 +26,7 @@ public class IdeiaDAO extends AbstractDAO implements InterfaceDAO<Ideia> {
 
     @Override
     public Ideia cadastrar(Ideia t) {
-        t.setDataCadastro(Calendar.getInstance());
+        t.setDataCadastro(Calendar.getInstance().getTime());
         entityManager.getTransaction().begin();
         super.persist(t);
         entityManager.getTransaction().commit();
@@ -62,15 +62,19 @@ public class IdeiaDAO extends AbstractDAO implements InterfaceDAO<Ideia> {
 
             Calendar cal = Calendar.getInstance();
             cal.setTime(r.getDataFinal());
-            cal.add(Calendar.HOUR, 23);
-            cal.add(Calendar.MINUTE, 59);
-            cal.add(Calendar.SECOND, 59);
+            cal.set(Calendar.HOUR, 23);
+            cal.set(Calendar.MINUTE, 59);
+            cal.set(Calendar.SECOND, 59);
+
+            System.out.println(r.getDataInicio());
+            System.out.println(cal.getTime());
 
             query.setParameter("param1", r.getDataInicio());
             query.setParameter("param2", cal.getTime());
 
             return query.getResultList();
         } catch (Exception e) {
+            e.printStackTrace();
             return new ArrayList<Ideia>();
         }
     }
