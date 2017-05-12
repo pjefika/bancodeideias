@@ -19,29 +19,31 @@
             </div>
 
             <div class="form-group <c:if test="${not empty errors.from('i.descricao')}">has-error</c:if>">
-                    <label class="control-label" for="inputSuccess1">Descrição:</label>
-                    <textarea
-                        class="form-control" id="descricao"
-                        placeholder="Descrição" name="i.descricao"/>
+                    <label class="control-label" for="inputSuccess1">Descreva sua idéia detalhadamente.</label>
+                    <textarea cols="76" rows="10" class="form-control" id="descricao" placeholder="Descreva sua idéia detalhadamente." name="i.descricao"/>
+                    </textarea>
                     <span id="helpBlock2" class="help-block">${errors.from('i.descricao')}</span>
             </div>
 
             <div class="form-group <c:if test="${not empty errors.from('i.ganhos')}">has-error</c:if>">
-                    <label class="control-label" for="inputSuccess1">Ganhos:</label>
-                    <textarea
-                        class="form-control" id="ganhos"
-                        placeholder="Ganhos" name="i.ganhos"/>
+                    <label class="control-label" for="inputSuccess1">
+                        A sua idéia irá proporcionar ganhos nos indicadores operacionais do CO? Detalhe quais são:
+                    </label>
+                    <textarea cols="90" rows="4" id="ganhos" class="form-control" placeholder="A sua idéia irá proporcionar ganhos nos indicadores operacionais do CO? Detalhe quais são:" name="addbd.ganhos">
+                    </textarea>
                     <span id="helpBlock2" class="help-block">${errors.from('i.ganhos')}</span>
+
             </div>
+
 
             <div class="form-group <c:if test="${not empty errors.from('i.descComo')}">has-error</c:if>">
-                    <label class="control-label" for="inputSuccess1">Como:</label>
-                    <textarea
-                        class="form-control" id="descComo"
-                        placeholder="descComo" name="i.descComo"/>
+                    <label>
+                        Será necessário alteração nos processos e ferramentas de atendimento? Descreva quais?
+                    </label>
+                    <textarea cols="76" rows="4" id="processos" class="form-control" placeholder="Será necessário alteração nos processos e ferramentas de atendimento? Descreva quais?" name="addbd.processos"></textarea>
                     <span id="helpBlock2" class="help-block">${errors.from('i.descComo')}</span>
             </div>
-
+            
             <button type="submit" class="btn btn-default">Registrar</button>
         </form>
     </div>
@@ -54,7 +56,7 @@
     }
 
 
-    $(document).ready(function() {
+    $(document).ready(function () {
 
 //        $("#guruLogin").change(function() {
 //            var login = $(this).val();
