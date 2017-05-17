@@ -24,7 +24,19 @@ public class Ideia extends AbstractEntity {
     @Lob
     @NotEmpty
     private String ganhos;
+    
+    @Lob
+    @NotEmpty
+    private String realizar;
 
+    public String getRealizar() {
+        return realizar;
+    }
+
+    public void setRealizar(String realizar) {
+        this.realizar = realizar;
+    }
+    
     @Lob
     @NotEmpty
     private String descComo;

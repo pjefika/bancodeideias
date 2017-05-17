@@ -20,17 +20,27 @@
 
             <div class="form-group <c:if test="${not empty errors.from('i.descricao')}">has-error</c:if>">
                     <label class="control-label" for="inputSuccess1">Descreva sua idéia detalhadamente.</label>
-                    <textarea cols="76" rows="10" class="form-control" id="descricao" placeholder="Descreva sua idéia detalhadamente." name="i.descricao"/>
-                    </textarea>
+                    <textarea cols="76" rows="10" class="form-control" id="descricao" placeholder="Descreva sua idéia detalhadamente." name="i.descricao"></textarea>
                     <span id="helpBlock2" class="help-block">${errors.from('i.descricao')}</span>
             </div>
+            
+            <div class="form-group <c:if test="${not empty errors.from('i.realizar')}">has-error</c:if>">
+                    <label class="control-label" for="inputSuccess1">
+                        O que deverá ser realizado para que a sua idéia seja implantada?
+                    </label>
+                    <textarea cols="90" rows="4" id="ganhos" class="form-control" placeholder="O que deverá ser realizado para que a sua idéia seja implantada?" name="addbd.realizar"></textarea>
+                    
+                    <span id="helpBlock2" class="help-block">${errors.from('i.realizar')}</span>
+
+            </div>
+            
 
             <div class="form-group <c:if test="${not empty errors.from('i.ganhos')}">has-error</c:if>">
                     <label class="control-label" for="inputSuccess1">
                         A sua idéia irá proporcionar ganhos nos indicadores operacionais do CO? Detalhe quais são:
                     </label>
-                    <textarea cols="90" rows="4" id="ganhos" class="form-control" placeholder="A sua idéia irá proporcionar ganhos nos indicadores operacionais do CO? Detalhe quais são:" name="addbd.ganhos">
-                    </textarea>
+                    <textarea cols="90" rows="4" id="ganhos" class="form-control" placeholder="A sua idéia irá proporcionar ganhos nos indicadores operacionais do CO? Detalhe quais são:" name="addbd.ganhos"></textarea>
+                    
                     <span id="helpBlock2" class="help-block">${errors.from('i.ganhos')}</span>
 
             </div>
@@ -43,7 +53,7 @@
                     <textarea cols="76" rows="4" id="processos" class="form-control" placeholder="Será necessário alteração nos processos e ferramentas de atendimento? Descreva quais?" name="addbd.processos"></textarea>
                     <span id="helpBlock2" class="help-block">${errors.from('i.descComo')}</span>
             </div>
-            
+
             <button type="submit" class="btn btn-default">Registrar</button>
         </form>
     </div>

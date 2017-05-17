@@ -31,15 +31,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-8">
-                        <label>Login Guru:*</label>
-                        <input type="text" class="form-control" id="guruLogin" placeholder="Matrícula do Guru" name="a.loginGuru" value="${atendimento.loginGuru}"/>
-                        <span id="nomeOperadorGuru"></span>
-                    </div>
-                </div>
-            </div>
+            
 
             <div class="form-group">
 

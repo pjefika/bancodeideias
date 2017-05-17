@@ -30,6 +30,7 @@
     <input type="text" value=" ${status.titulo}">
     <input type="text" value="${status.ideia}">
     <input type="text" value="${status.implantar}">
+    <input type="text" value="${status.realizar}">
     <input type="text" value="${status.ganhos}">
     <input type="text" value="${status.processos}">
     <input type="text"  value="${status.login}">

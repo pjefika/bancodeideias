@@ -10,7 +10,6 @@ import bancodeideias.model.viewmodel.Relatorio;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 /**
@@ -20,16 +19,16 @@ import javax.persistence.Query;
 public class IdeiaDAO extends AbstractDAO implements InterfaceDAO<Ideia> {
 
     public IdeiaDAO() {
-        factory = Persistence.createEntityManagerFactory("bancodeideiasPU");
-        entityManager = factory.createEntityManager();
+//        factory = Persistence.createEntityManagerFactory("bancodeideiasPU");
+//        entityManager = factory.createEntityManager();
     }
 
     @Override
     public Ideia cadastrar(Ideia t) {
         t.setDataCadastro(Calendar.getInstance().getTime());
-        entityManager.getTransaction().begin();
+//        entityManager.getTransaction().begin();
         super.persist(t);
-        entityManager.getTransaction().commit();
+//        entityManager.getTransaction().commit();
         return t;
     }
 
