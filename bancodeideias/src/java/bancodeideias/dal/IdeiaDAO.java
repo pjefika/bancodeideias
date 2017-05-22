@@ -5,12 +5,14 @@
  */
 package bancodeideias.dal;
 
+import bancodeideias.model.entities.StatusIdeia;
 import bancodeideias.model.entitiy.Ideia;
 import bancodeideias.model.viewmodel.Relatorio;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 /**
  *
@@ -24,6 +26,7 @@ public class IdeiaDAO extends AbstractDAO implements InterfaceDAO<Ideia> {
     }
 
     @Override
+    @Transactional
     public Ideia cadastrar(Ideia t) {
         t.setDataCadastro(Calendar.getInstance().getTime());
 //        entityManager.getTransaction().begin();
@@ -53,7 +56,9 @@ public class IdeiaDAO extends AbstractDAO implements InterfaceDAO<Ideia> {
             return new ArrayList<>();
         }
     }
-
+    
+    
+    
     @Override
     public List<Ideia> listar(Relatorio r) {
         try {
@@ -75,6 +80,21 @@ public class IdeiaDAO extends AbstractDAO implements InterfaceDAO<Ideia> {
         } catch (Exception e) {
             e.printStackTrace();
             return new ArrayList<Ideia>();
+        }
+    }
+    @Transactional
+    public List<Ideia> listarporstatus() {
+        try {
+            Query query = this.entityManager.createQuery("FROM Bancoideias b WHERE b.status =:param1 OR b.status =:param2");
+            query.setParameter("param1", StatusIdeia.ANALISE);
+            query.setParameter("param2", StatusIdeia.ENVIADO);
+            
+            
+            
+
+            return query.getResultList();
+        } catch (Exception e) {
+            return new ArrayList<>();
         }
     }
 }
