@@ -41,21 +41,31 @@ public class IdeiaDAO extends AbstractDAO implements InterfaceDAO<Ideia> {
     }
 
     @Override
+    @Transactional
     public Ideia editar(Ideia t) {
         super.merge(t);
         return t;
     }
 
-    @Override
-    public List<Ideia> listar() {
+//    @Override
+//    public List<Ideia> listar1() {
+//        try {
+//            Query query = this.entityManager.createQuery("FROM Ideia");
+//            List<Ideia> result = query.getResultList();
+//            return result;
+//        } catch (Exception e) {
+//            return new ArrayList<>();
+//        }
+//    }
+    
+    public Ideia find(Long id) {
         try {
-            Query query = this.entityManager.createQuery("FROM Ideia");
-            List<Ideia> result = query.getResultList();
-            return result;
+            return this.entityManager.find(Ideia.class, id);
         } catch (Exception e) {
-            return new ArrayList<>();
+            return null;
         }
     }
+     
     
     
     
@@ -82,19 +92,33 @@ public class IdeiaDAO extends AbstractDAO implements InterfaceDAO<Ideia> {
             return new ArrayList<Ideia>();
         }
     }
-    @Transactional
-    public List<Ideia> listarporstatus() {
+    
+    public List<Ideia> listarIdeiasPendentes() {
         try {
-            Query query = this.entityManager.createQuery("FROM Bancoideias b WHERE b.status =:param1 OR b.status =:param2");
+            Query query = this.entityManager.createQuery("FROM Ideia i WHERE i.status =:param1 OR i.status =:param2");
             query.setParameter("param1", StatusIdeia.ANALISE);
             query.setParameter("param2", StatusIdeia.ENVIADO);
-            
-            
-            
 
             return query.getResultList();
         } catch (Exception e) {
             return new ArrayList<>();
         }
     }
+    
+    
+    public List<Ideia> listarIdeiasPorLogin(String login) {
+        try {
+            Query query = this.entityManager.createQuery("FROM Ideia i WHERE i.loginCriador =:param1");
+            query.setParameter("param1", login);
+            return query.getResultList();
+        } catch (Exception e) {
+            return new ArrayList<>();
+        }
+    }
+
+    @Override
+    public List<Ideia> listar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
