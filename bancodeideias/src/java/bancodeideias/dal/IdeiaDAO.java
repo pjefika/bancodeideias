@@ -5,6 +5,7 @@
  */
 package bancodeideias.dal;
 
+import bancodeideias.model.annotation.Admin;
 import bancodeideias.model.annotation.Logado;
 import bancodeideias.model.entities.StatusIdeia;
 import bancodeideias.model.entitiy.Ideia;
@@ -67,7 +68,8 @@ public class IdeiaDAO extends AbstractDAO implements InterfaceDAO<Ideia> {
         }
     }
 
-    @Override
+    @Admin
+    @Transactional
     public List<Ideia> listar(Relatorio r) {
         try {
             Query query = this.entityManager.createQuery("FROM Ideia i WHERE i.dataCadastro BETWEEN :param1 AND :param2 ORDER BY i.dataCadastro DESC");
@@ -122,6 +124,10 @@ public class IdeiaDAO extends AbstractDAO implements InterfaceDAO<Ideia> {
         } catch (Exception e) {
             return new ArrayList<>();
         }
+    }
+
+    public Object listar(bancodeideias.controller.system.Relatorio r) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
