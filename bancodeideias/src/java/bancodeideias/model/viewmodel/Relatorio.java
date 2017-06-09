@@ -31,4 +31,8 @@ public class Relatorio {
 	public void setDataFinal(Date dataFinal) {
 		this.dataFinal = dataFinal;
 	}
+
+    public Object getRelato() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

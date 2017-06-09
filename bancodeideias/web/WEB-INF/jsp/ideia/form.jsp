@@ -25,10 +25,10 @@
             </div>
             
             <div class="form-group <c:if test="${not empty errors.from('i.realizar')}">has-error</c:if>">
-                    <label class="control-label" for="inputSuccess1">
+                    <label class="control-label">
                         O que deverá ser realizado para que a sua idéia seja implantada?
                     </label>
-                    <textarea cols="90" rows="4" id="ganhos" class="form-control" placeholder="O que deverá ser realizado para que a sua idéia seja implantada?" name="addbd.realizar"></textarea>
+                    <textarea cols="90" rows="4" id="ganhos" class="form-control" placeholder="O que deverá ser realizado para que a sua idéia seja implantada?" name="i.realizar"></textarea>
                     
                     <span id="helpBlock2" class="help-block">${errors.from('i.realizar')}</span>
 
@@ -39,7 +39,7 @@
                     <label class="control-label" for="inputSuccess1">
                         A sua idéia irá proporcionar ganhos nos indicadores operacionais do CO? Detalhe quais são:
                     </label>
-                    <textarea cols="90" rows="4" id="ganhos" class="form-control" placeholder="A sua idéia irá proporcionar ganhos nos indicadores operacionais do CO? Detalhe quais são:" name="addbd.ganhos"></textarea>
+                    <textarea cols="90" rows="4" id="ganhos" class="form-control" placeholder="A sua idéia irá proporcionar ganhos nos indicadores operacionais do CO? Detalhe quais são:" name="i.ganhos"></textarea>
                     
                     <span id="helpBlock2" class="help-block">${errors.from('i.ganhos')}</span>
 
@@ -50,7 +50,7 @@
                     <label>
                         Será necessário alteração nos processos e ferramentas de atendimento? Descreva quais?
                     </label>
-                    <textarea cols="76" rows="4" id="processos" class="form-control" placeholder="Será necessário alteração nos processos e ferramentas de atendimento? Descreva quais?" name="addbd.processos"></textarea>
+                    <textarea cols="76" rows="4" id="processos" class="form-control" placeholder="Será necessário alteração nos processos e ferramentas de atendimento? Descreva quais?" name="i.descComo"></textarea>
                     <span id="helpBlock2" class="help-block">${errors.from('i.descComo')}</span>
             </div>
 

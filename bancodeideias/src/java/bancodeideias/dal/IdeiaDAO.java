@@ -5,6 +5,7 @@
  */
 package bancodeideias.dal;
 
+import bancodeideias.model.annotation.Logado;
 import bancodeideias.model.entities.StatusIdeia;
 import bancodeideias.model.entitiy.Ideia;
 import bancodeideias.model.viewmodel.Relatorio;
@@ -25,6 +26,7 @@ public class IdeiaDAO extends AbstractDAO implements InterfaceDAO<Ideia> {
 //        entityManager = factory.createEntityManager();
     }
 
+    @Logado
     @Override
     @Transactional
     public Ideia cadastrar(Ideia t) {
@@ -57,7 +59,6 @@ public class IdeiaDAO extends AbstractDAO implements InterfaceDAO<Ideia> {
 //            return new ArrayList<>();
 //        }
 //    }
-    
     public Ideia find(Long id) {
         try {
             return this.entityManager.find(Ideia.class, id);
@@ -65,10 +66,7 @@ public class IdeiaDAO extends AbstractDAO implements InterfaceDAO<Ideia> {
             return null;
         }
     }
-     
-    
-    
-    
+
     @Override
     public List<Ideia> listar(Relatorio r) {
         try {
@@ -92,7 +90,7 @@ public class IdeiaDAO extends AbstractDAO implements InterfaceDAO<Ideia> {
             return new ArrayList<Ideia>();
         }
     }
-    
+
     public List<Ideia> listarIdeiasPendentes() {
         try {
             Query query = this.entityManager.createQuery("FROM Ideia i WHERE i.status =:param1 OR i.status =:param2");
@@ -104,8 +102,7 @@ public class IdeiaDAO extends AbstractDAO implements InterfaceDAO<Ideia> {
             return new ArrayList<>();
         }
     }
-    
-    
+
     public List<Ideia> listarIdeiasPorLogin(String login) {
         try {
             Query query = this.entityManager.createQuery("FROM Ideia i WHERE i.loginCriador =:param1");
@@ -118,7 +115,13 @@ public class IdeiaDAO extends AbstractDAO implements InterfaceDAO<Ideia> {
 
     @Override
     public List<Ideia> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            Query query = this.entityManager.createQuery("FROM Ideia i");
+            query.setMaxResults(9);
+            return query.getResultList();
+        } catch (Exception e) {
+            return new ArrayList<>();
+        }
     }
 
 }

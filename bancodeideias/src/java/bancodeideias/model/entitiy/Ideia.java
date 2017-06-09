@@ -1,8 +1,9 @@
 package bancodeideias.model.entitiy;
 
+import bancodeideias.model.entities.StatusIdeia;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -17,17 +18,19 @@ public class Ideia extends AbstractEntity {
     @NotEmpty
     private String titulo;
 
-    @Lob
+    @Column(length = 255555)
     @NotEmpty
     private String descricao;
 
-    @Lob
+    @Column(length = 255555)
     @NotEmpty
     private String ganhos;
-    
-    @Lob
+
+    @Column(length = 255555)
     @NotEmpty
     private String realizar;
+    
+    private StatusIdeia status;
 
     public String getRealizar() {
         return realizar;
@@ -36,8 +39,8 @@ public class Ideia extends AbstractEntity {
     public void setRealizar(String realizar) {
         this.realizar = realizar;
     }
-    
-    @Lob
+
+    @Column(length = 255555)
     @NotEmpty
     private String descComo;
 
@@ -103,5 +106,15 @@ public class Ideia extends AbstractEntity {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+
+    public StatusIdeia getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusIdeia status) {
+        this.status = status;
+    }
+    
+    
 
 }

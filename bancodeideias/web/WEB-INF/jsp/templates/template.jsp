@@ -40,22 +40,25 @@
                 </button>
                 <a class="navbar-brand" href="${linkTo[HomeController].index}">Banco de Idéias CO</a>
             </div>
+
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
 
                     <li><a href="${linkTo[HomeController].index}">Home</a></li>
-
-                    <li><a href="${linkTo[IdeiaController].form}">Cadastre sua Ideia</a></li>
-                    <li><a href="${linkTo[IdeiaController].view}">Ideias Cadastradas</a></li>
-                    <li><a href="${linkTo[BancoIdeiaController].painel}">Administração</a></li>
+                    <c:if test="${sessionUsuarioEfika.logado}">
+                        <li><a href="${linkTo[IdeiaController].form}">Cadastre sua Ideia</a></li>
+                        <li><a href="${linkTo[IdeiaController].minhasIdeias}">Minhas Ideias</a></li>
+                        <li><a href="${linkTo[IdeiaController].ideiasCadastradas}">Ideias Cadastradas</a></li>
+                        <li><a href="${linkTo[IdeiaController].painel}">Administração</a></li>
                 </ul>
+                </c:if>
                 <ul class="nav navbar-nav navbar-right">
 
                     <c:choose>
                         <c:when test="${empty sessionUsuarioEfika.usuario.login}">
                             <li><a href="${linkTo[UsuarioController].create}">Login</a></li>
-                            </c:when>
-                            <c:otherwise>
+                        </c:when>
+                        <c:otherwise>
                             <li>
                                 <a href="${linkTo[UsuarioController].logout}">${sessionUsuarioEfika.usuario.login}, Logout</a>
                             </li>

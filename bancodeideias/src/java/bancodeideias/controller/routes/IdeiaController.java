@@ -8,7 +8,6 @@ import bancodeideias.model.entities.StatusIdeia;
 import bancodeideias.model.entitiy.Ideia;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
-import java.util.Calendar;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 
@@ -31,8 +30,7 @@ public class IdeiaController extends AbstractCrudController {
     @Logado
     public void form() {
     }
-    
-    
+
     /**
      * Rota para cadastro
      *
@@ -53,8 +51,15 @@ public class IdeiaController extends AbstractCrudController {
     @Logado
     @Path("/ideia/{id}")
     public void view(Long id) {
-        System.out.println(id);
         this.result.include("i", ideiaDAO.find(id));
+    }
+
+    @Admin
+    @Path("/editar/{id}")
+    public void editar(Long id) {
+        this.result.include("i", ideiaDAO.find(id));
+
+        this.result.include("StatusIdeia", StatusIdeia.values());
     }
 
     public void status() {
@@ -78,36 +83,35 @@ public class IdeiaController extends AbstractCrudController {
      */
     @Admin
     public void painel() {
-        this.result.include("ideias", ideiaDAO.listar());
+        this.result.include("ideias", ideiaDAO.listarIdeiasPendentes());
 
     }
+
 //    @Admin
-//    @Path("editar/{i.id}")
-//    public void editar(Ideia bb) {
+//    @Path("/editar/{i.id}")
+//    public void editar(Long id) {
+//        this.result.include("i", ideiaDAO.find(id));
+//    }
+//    @Admin
+//    public void update(Ideia i) {
 //        try {
-//            this.ideiaDAO.editar(bb);
-//            this.result.include("mensagem", "Status modificado com sucesso");
+//            ideiaDAO.editar(s);
 //        } catch (Exception e) {
-//            this.result.include("mensagemFalha", "erro ao modificar");
+//            e.printStackTrace();
 //        }
 //    }
-    
     @Admin
-    @Path("editar/{i.id}")
-    public void update(Ideia bb){
+    
+    public void updateStatus(Ideia i) {
+        Ideia a = this.ideiaDAO.find(i.getId());
+            a.setStatus(i.getStatus());
 
-        editar tratada1 = ideiaDAO.listarIdeiasPendentes(i.getId());
-        Calendar calendar = Calendar.getInstance();
-        tratada1.setStatus(bb.getStatus());
-        tratada1.setUserbackoffice(this.session.getUsuario().getLogin());
         try {
-            ideiaDAO.editar(tratada1);
-            result.redirectTo(IdeiaController.class).editar();
+            ideiaDAO.editar(a);
+            result.redirectTo(IdeiaController.class).painel();
         } catch (Exception ex) {
-//            Logger.getLogger(BaixaBaController.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }
-
-    
 
 }

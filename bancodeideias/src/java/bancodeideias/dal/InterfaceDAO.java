@@ -15,4 +15,6 @@ public interface InterfaceDAO<T> {
 
     public List<T> listar(Relatorio r);
 
+
+
 }
