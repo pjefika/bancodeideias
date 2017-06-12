@@ -7,12 +7,11 @@
     response.setHeader("Content-Disposition", "inline; filename=" + "excel.xls");
 %>
 
-<c:if test="${not empty relatorio}">
+<c:if test="${not empty relato}">
     <table>
         <thead>
             <tr>
                 <th>Periodo Inicial da Inscrição</th>
-                <th>Periodo Final da Inscrição</th>                
                 <th>Login</th>
                 <th>Título</th>
                 <th>Descrição</th>
@@ -23,10 +22,9 @@
             </tr>
         </thead>
         <tbody>
-            <c:forEach items="${relatorio}" var="at">
+            <c:forEach items="${relato}" var="at">
                 <tr class="leline">
-                    <td><fmt:formatDate type="both"  dateStyle="short" timeStyle="short" value="${at.dabertura.time}"/></td>
-                    <td><fmt:formatDate type="both"  dateStyle="short" timeStyle="short" value="${at.dfechamento.time}"/></td>
+                    <td><fmt:formatDate type="both"  dateStyle="short" timeStyle="short" value="${at.datacadastro.time}"/></td>
                     <td>${at.logincriador}</td>
                     <td>${at.titulo}</td>
                     <td>${at.descricao}</td>
@@ -39,7 +37,7 @@
         </tbody>
     </table> 
 </c:if>
-<c:if test="${not empty relatorio}">
+<c:if test="${not empty relato}">
 
 
 </c:if>

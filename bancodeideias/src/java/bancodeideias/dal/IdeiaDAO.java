@@ -88,8 +88,7 @@ public class IdeiaDAO extends AbstractDAO implements InterfaceDAO<Ideia> {
 
             return query.getResultList();
         } catch (Exception e) {
-            e.printStackTrace();
-            return new ArrayList<Ideia>();
+            return new ArrayList<>();
         }
     }
 
@@ -118,16 +117,12 @@ public class IdeiaDAO extends AbstractDAO implements InterfaceDAO<Ideia> {
     @Override
     public List<Ideia> listar() {
         try {
-            Query query = this.entityManager.createQuery("FROM Ideia i");
+            Query query = this.entityManager.createQuery("FROM Ideia i WHERE i.status =:param1");
+            query.setParameter("param1", StatusIdeia.DIVULGADO);
             query.setMaxResults(9);
             return query.getResultList();
         } catch (Exception e) {
             return new ArrayList<>();
         }
     }
-
-    public Object listar(bancodeideias.controller.system.Relatorio r) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }

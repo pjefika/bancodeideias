@@ -3,23 +3,24 @@
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator"
            prefix="decorator"%>
 
+<div class="page-header">
+    <h2>Detalhes Ideia</h2>
+</div>
 
 
-    <div class="alert alert-success" role="alert">Status da Ideia - ${i.status}</div>
+<div class="alert alert-success" role="alert">Status da Ideia - ${i.status}</div>
 
 <div class="row">
     <div class="col-xs-12">
         <div>
-            <label class="control-label">
-                Titulo.
-            </label>
+            <label class="control-label">Titulo:</label>
             <br>
             <span>${i.titulo}</span>
         </div>
         <br><br>
         <div>
             <label class="control-label">
-                Descreva sua idéia detalhadamente.
+                Descreva sua idéia detalhadamente:
             </label>
             <br>
             <span>${i.descricao}</span>
@@ -48,49 +49,7 @@
             <br>
             <span>${i.descComo}</span>
 
-        
-        <br><br>
+            <br><br>
 
+        </div>
     </div>
-</div>
-
-<script>
-
-    function limpa() {
-
-    }
-
-
-    $(document).ready(function () {
-
-//        $("#guruLogin").change(function() {
-//            var login = $(this).val();
-//            $.ajax({
-//                type: 'GET',
-//                data: 'login=' + login,
-//                url: 'http://efika/web/services/colaborador/',
-//                dataType: 'xml',
-//                success: function(xml) {
-//                    $(xml).find('colaborador').each(function() {
-//                        var nome = $(this).find('nome').text();
-//                        var cargo = $(this).find('cargo').text();
-//                        var supervisor = $(this).find('supervisor').text();
-//                        var area = $(this).find('area').text();
-//                        var pabx = $(this).find('pabx').text();
-//
-//                        if (nome === 'Colaborador não encontrado!') {
-//                            //$("#nomeOperadorGuru").hide();
-//                            $("#nomeOperadorGuru").text("Login não encontrado.");
-//                        } else {
-//                            $("#nomeOperadorGuru").text(nome + ' - Gestor: ' + supervisor);
-//                            $("#nomeOperadorGuru").show();
-//                        }
-//                        if (login === '') {
-//                            $("#nomeOperadorGuru").hide();
-//                        }
-//                    });
-//                }
-//            });
-//        });
-    });
-</script>

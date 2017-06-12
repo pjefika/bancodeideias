@@ -27,8 +27,8 @@ src="${pageContext.request.contextPath}/resources/datepicker/js/bootstrap-datepi
                     <div class="col-md-8">
                         <label for="dataInicial">Data Inicial: </label>
                         <input type="text"
-                               class="form-control datepicker" id="dataInicial"
-                               placeholder="Data Inicial" name="r.dataInicio" />
+                               class="form-control datepicker" id="datacadastro"
+                               placeholder="Data Inicial" name="r.datacadastro" />
                     </div>
 
                     <div class="col-md-4" style="margin-top: 30px;">

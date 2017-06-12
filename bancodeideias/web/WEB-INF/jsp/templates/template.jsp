@@ -55,22 +55,21 @@
                                     <li><a href="${linkTo[RelatorioController].create()}"> Relatórios</a></li>
                                 </ul>
                             </li>
-
-                        </c:if>
-                        <ul class="nav navbar-nav navbar-right">
-
-                            <c:choose>
-                                <c:when test="${empty sessionUsuarioEfika.usuario.login}">
-                                    <li><a href="${linkTo[UsuarioController].create}">Login</a></li>
-                                    </c:when>
-                                    <c:otherwise>
-                                    <li>
-                                        <a href="${linkTo[UsuarioController].logout}">${sessionUsuarioEfika.usuario.login}, Logout</a>
-                                    </li>
-                                </c:otherwise>
-                            </c:choose>
-
                         </ul>
+                    </c:if>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <c:choose>
+                            <c:when test="${empty sessionUsuarioEfika.usuario.login}">
+                                <li><a href="${linkTo[UsuarioController].create}">Login</a></li>
+                                </c:when>
+                                <c:otherwise>
+                                <li>
+                                    <a href="${linkTo[UsuarioController].logout}">${sessionUsuarioEfika.usuario.login}, Logout</a>
+                                </li>
+                            </c:otherwise>
+                        </c:choose>
+                    </ul>
                 </div>
             </div>
 

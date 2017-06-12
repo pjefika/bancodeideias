@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
@@ -16,11 +17,12 @@ public class Ideia extends AbstractEntity {
     private String loginCriador;
 
     @NotEmpty
+    @Length(min = 0, max = 100)
     private String titulo;
 
     @Column(length = 255555)
     @NotEmpty
-    private String descricao;
+        private String descricao;
 
     @Column(length = 255555)
     @NotEmpty
@@ -51,6 +53,10 @@ public class Ideia extends AbstractEntity {
     public Ideia() {
         super();
     }
+    
+//    public String desc(){
+//        
+//    }
 
     public String getLoginCriador() {
         return loginCriador;

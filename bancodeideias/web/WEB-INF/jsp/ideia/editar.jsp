@@ -3,9 +3,10 @@
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator"
            prefix="decorator"%>
 
+<div class="page-header">
+    <h2>Editar Idéia</h2>
+</div>
 
-
-<div class="alert alert-success" role="alert">Editar Idéia</div>
 <form action="${linkTo[IdeiaController].updateStatus}" method="post"  style="width: 100%;"> 
     <input type="hidden" name="i.id" value="${i.id}"/>
     <div class="row">

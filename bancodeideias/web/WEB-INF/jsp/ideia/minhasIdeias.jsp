@@ -13,15 +13,20 @@
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator"
            prefix="decorator"%>
 
-<div class="alert alert-info" role="alert">Minhas Idéias Cadastradas</div>
+<div class="page-header">
+    <h2>Minhas Idéias</h2>
+</div>
 
 <div class="row">
     <c:forEach items="${ideias}" var="i">
-        <div class="col-lg-4">
-            <h2>${i.titulo}</h2>
-            <p class="text-danger">${i.descricao}</p>
-            <p><a class="btn btn-primary" href="${linkTo[IdeiaController].view(i.id)}" role="button">Mais detalhes</a></p>
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h3>${i.titulo}</h3>
+                    <p class="text-justify">${i.descricao}</p>
+                    <p><a class="btn btn-primary" href="${linkTo[IdeiaController].view(i.id)}" role="button">Mais detalhes</a></p>
+                </div>
+            </div>
         </div>
     </c:forEach>
 </div>
-
