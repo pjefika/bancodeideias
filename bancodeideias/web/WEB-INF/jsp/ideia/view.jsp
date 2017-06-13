@@ -6,9 +6,12 @@
 <div class="page-header">
     <h2>Detalhes Ideia</h2>
 </div>
+<div>
+    <p>
+        <a class="btn btn-primary" onclick="history.back(-1)" class="cancelar" role="button">Voltar</a>
+    </p>
 
-
-<div class="alert alert-success" role="alert">Status da Ideia - ${i.status}</div>
+</div>
 
 <div class="row">
     <div class="col-xs-12">
@@ -53,3 +56,9 @@
 
         </div>
     </div>
+    <a class="glyphicon glyphicon-thumbs-up btn-lg" href="" role="button btn"></a><span class="badge">1</span>
+    <br>
+    <a class="glyphicon glyphicon-thumbs-down btn-lg" href="" role="button btn-lg"></a><span class="badge"></span>
+
+
+

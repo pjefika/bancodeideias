@@ -70,21 +70,17 @@ public class IdeiaDAO extends AbstractDAO implements InterfaceDAO<Ideia> {
 
     @Admin
     @Transactional
+    @Override
     public List<Ideia> listar(Relatorio r) {
         try {
             Query query = this.entityManager.createQuery("FROM Ideia i WHERE i.dataCadastro BETWEEN :param1 AND :param2 ORDER BY i.dataCadastro DESC");
 
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(r.getDataFinal());
-            cal.set(Calendar.HOUR, 23);
-            cal.set(Calendar.MINUTE, 59);
-            cal.set(Calendar.SECOND, 59);
-
-            System.out.println(r.getDataInicio());
-            System.out.println(cal.getTime());
+            r.getDataFinal().set(Calendar.HOUR, 23);
+            r.getDataFinal().set(Calendar.MINUTE, 59);
+            r.getDataFinal().set(Calendar.SECOND, 59);
 
             query.setParameter("param1", r.getDataInicio());
-            query.setParameter("param2", cal.getTime());
+            query.setParameter("param2", r.getDataFinal());
 
             return query.getResultList();
         } catch (Exception e) {

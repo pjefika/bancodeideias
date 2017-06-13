@@ -11,6 +11,7 @@ import br.com.caelum.vraptor.Path;
 import java.util.List;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
+import javax.validation.Valid;
 
 @Controller
 @RequestScoped
@@ -29,7 +30,8 @@ public class IdeiaController extends AbstractCrudController {
      * Form de Cadastro
      */
     @Logado
-    public void form() {
+    public void form(Ideia i) {
+        this.result.include("i", i);
     }
 
     /**
@@ -38,14 +40,17 @@ public class IdeiaController extends AbstractCrudController {
      * @param i
      */
     @Logado
-    public void add(Ideia i) {
+    public void add(@Valid Ideia i) {
+
+        validation.onErrorForwardTo(this).form(i);
+
         try {
             i.setLoginCriador(this.session.getUsuario().getLogin());
             i.setStatus(StatusIdeia.ENVIADO);
             ideiaDAO.cadastrar(i);
             this.result.redirectTo(IdeiaController.class).minhasIdeias();
         } catch (Exception e) {
-            validation.onErrorForwardTo(this).form();
+            validation.onErrorForwardTo(this).form(i);
         }
     }
 
@@ -72,7 +77,7 @@ public class IdeiaController extends AbstractCrudController {
         List<Ideia> l = ideiaDAO.listar();
         for (Ideia ideia : l) {
             if (ideia.getDescricao().length() > 50) {
-                ideia.setDescricao(ideia.getDescricao().substring(0, 100));
+                ideia.setDescricao(ideia.getDescricao().substring(0, 100).concat("..."));
             }
         }
         this.result.include("ideias", l);
@@ -81,10 +86,10 @@ public class IdeiaController extends AbstractCrudController {
 
     @Logado
     public void minhasIdeias() {
-              List<Ideia> l = ideiaDAO.listarIdeiasPorLogin(session.getUsuario().getLogin());
+        List<Ideia> l = ideiaDAO.listarIdeiasPorLogin(session.getUsuario().getLogin());
         for (Ideia ideia : l) {
             if (ideia.getDescricao().length() > 50) {
-                ideia.setDescricao(ideia.getDescricao().substring(0, 100));
+                ideia.setDescricao(ideia.getDescricao().substring(0, 100).concat("..."));
             }
         }
         this.result.include("ideias", l);
@@ -99,10 +104,10 @@ public class IdeiaController extends AbstractCrudController {
         List<Ideia> l = ideiaDAO.listarIdeiasPendentes();
         for (Ideia ideia : l) {
             if (ideia.getDescricao().length() > 50) {
-                ideia.setDescricao(ideia.getDescricao().substring(0, 100));
+                ideia.setDescricao(ideia.getDescricao().substring(0, 100).concat("..."));
             }
         }
-        this.result.include("ideias", l); 
+        this.result.include("ideias", l);
 
     }
 

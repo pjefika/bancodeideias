@@ -19,21 +19,19 @@ src="${pageContext.request.contextPath}/resources/datepicker/js/bootstrap-datepi
         <form action="${linkTo[RelatorioController].add()}" method="post">
 
             <div class="form-group">
-                <div class="row">
-                    
-                </div>
 
                 <div class="row">
                     <div class="col-md-8">
                         <label for="dataInicial">Data Inicial: </label>
                         <input type="text"
-                               class="form-control datepicker" id="datacadastro"
-                               placeholder="Data Inicial" name="r.datacadastro" />
+                               class="form-control datepicker" id="dataInicio"
+                               placeholder="Data Inicial" name="r.dataInicio" />
                     </div>
 
                     <div class="col-md-4" style="margin-top: 30px;">
                         <c:if test="${not empty errors.from('r.dataInicio')}">
-                            <small> <span class="alert alert-warning validator">
+                            <small> 
+                                <span class="alert alert-warning validator">
                                     <span class="glyphicon glyphicon-exclamation-sign"
                                           aria-hidden="true"></span> ${errors.from('r.dataInicio')}
                                 </span>
@@ -44,9 +42,10 @@ src="${pageContext.request.contextPath}/resources/datepicker/js/bootstrap-datepi
 
                 <div class="row">
                     <div class="col-md-8">
-                        <label for="dataIinicial">Data Final: </label> <input type="text"
-                                                                              class="form-control datepicker" id="dataFinal"
-                                                                              placeholder="Data Final" name="r.dataFinal" />
+                        <label for="dataIinicial">Data Final: </label> 
+                        <input type="text"
+                               class="form-control datepicker" id="dataFinal"
+                               placeholder="Data Final" name="r.dataFinal" />
                     </div>
                     <div class="col-md-4" style="margin-top: 30px;">
                         <c:if test="${not empty errors.from('r.dataFinal')}">
@@ -66,7 +65,7 @@ src="${pageContext.request.contextPath}/resources/datepicker/js/bootstrap-datepi
 </div>
 <script>
 
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         $('.datepicker').datepicker({
             format: 'dd/mm/yyyy',

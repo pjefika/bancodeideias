@@ -56,7 +56,7 @@
                 <div class="form-inline">
                     <select class="form-control" name="i.status" id="novostatus">
                         <c:forEach items="${StatusIdeia}" var="StatusIdeia">
-                            <option  <c:if test="${StatusIdeia == resultado.status}">selected </c:if> >${StatusIdeia}</option>
+                            <option  <c:if test="${StatusIdeia == i.status}">selected </c:if> >${StatusIdeia}</option>
                         </c:forEach>
                     </select>
                 </div>

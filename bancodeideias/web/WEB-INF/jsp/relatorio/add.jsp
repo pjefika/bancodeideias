@@ -37,7 +37,3 @@
         </tbody>
     </table> 
 </c:if>
-<c:if test="${not empty relato}">
-
-
-</c:if>

@@ -16,22 +16,22 @@ public class Ideia extends AbstractEntity {
     @NotEmpty
     private String loginCriador;
 
-    @NotEmpty
+    @NotEmpty(message = "Campo requerido!")
     @Length(min = 0, max = 100)
     private String titulo;
 
     @Column(length = 255555)
-    @NotEmpty
-        private String descricao;
+    @NotEmpty(message = "Campo requerido!")
+    private String descricao;
 
     @Column(length = 255555)
-    @NotEmpty
+    @NotEmpty(message = "Campo requerido!")
     private String ganhos;
 
     @Column(length = 255555)
-    @NotEmpty
+    @NotEmpty(message = "Campo requerido!")
     private String realizar;
-    
+
     private StatusIdeia status;
 
     public String getRealizar() {
@@ -43,7 +43,7 @@ public class Ideia extends AbstractEntity {
     }
 
     @Column(length = 255555)
-    @NotEmpty
+    @NotEmpty(message = "Campo requerido!")
     private String descComo;
 
     @NotNull
@@ -53,11 +53,10 @@ public class Ideia extends AbstractEntity {
     public Ideia() {
         super();
     }
-    
+
 //    public String desc(){
 //        
 //    }
-
     public String getLoginCriador() {
         return loginCriador;
     }
@@ -120,7 +119,5 @@ public class Ideia extends AbstractEntity {
     public void setStatus(StatusIdeia status) {
         this.status = status;
     }
-    
-    
 
 }
