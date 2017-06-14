@@ -4,7 +4,7 @@
            prefix="decorator"%>
 
 <div class="page-header">
-    <h2>Idéias Cadastradas aguardando Análise</h2>
+    <h2>Ideias Cadastradas aguardando Análise</h2>
 </div>
 
 <div class="row">

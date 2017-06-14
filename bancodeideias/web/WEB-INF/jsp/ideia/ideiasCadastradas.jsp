@@ -4,7 +4,7 @@
            prefix="decorator"%>
 
 <div class="page-header">
-    <h2>Idéias Cadastradas</h2>
+    <h2>Ideias Cadastradas</h2>
 </div>
 
 
@@ -19,23 +19,7 @@
                         <div class="col-md-4">
                             <a class="btn btn-primary" alin="left" href="${linkTo[IdeiaController].view(i.id)}" role="button">Mais detalhes</a>
                         </div>
-                        <div class="col-md-4"></div>
-                        <div class="col-md-4">
-                            <c:choose>
-                                <c:when test="${i.status eq 'NEGADO'}">
-                                    <span class="label label-danger"> ${i.status}</span>
-                                </c:when>
-                                <c:when test="${i.status eq 'DIVULGADO'}">
-                                    <span class="label label-success"> ${i.status}</span>
-                                </c:when>
-                                <c:when test="${i.status eq 'ANALISE'}">
-                                    <span class="label label-warning"> ${i.status}</span>
-                                </c:when>                                
-                                <c:otherwise>
-                                    <span class="label label-info"> ${i.status}</span>
-                                </c:otherwise>
-                            </c:choose>
-                        </div>                                            
+                                                   
                     </div>
                 </div>
             </div>

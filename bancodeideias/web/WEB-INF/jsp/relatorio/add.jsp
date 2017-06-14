@@ -14,23 +14,23 @@
                 <th>Periodo Inicial da Inscrição</th>
                 <th>Login</th>
                 <th>Título</th>
-                <th>Descrição</th>
-                <th>Implementação</th>
+                <th>Descrição Geral</th>
                 <th>Ganhos</th>
-                <th>Alterações</th>
+                <th>Ações</th>
+                <th>Descrição Como</th>
                 <th>Status</th>
             </tr>
         </thead>
         <tbody>
             <c:forEach items="${relato}" var="at">
                 <tr class="leline">
-                    <td><fmt:formatDate type="both"  dateStyle="short" timeStyle="short" value="${at.datacadastro.time}"/></td>
-                    <td>${at.logincriador}</td>
+                    <td><fmt:formatDate type="both"  dateStyle="short" timeStyle="short" value="${at.dataCadastro.time}"/></td>
+                    <td>${at.loginCriador}</td>
                     <td>${at.titulo}</td>
                     <td>${at.descricao}</td>
-                    <td>${at.descomo}</td>
+                    <td>${at.ganhos}</td>
                     <td>${at.realizar}</td>
-                    <td>${at.descomo}</td>
+                    <td>${at.descComo}</td>
                     <td>${at.status}</td>
                 </tr>
             </c:forEach>

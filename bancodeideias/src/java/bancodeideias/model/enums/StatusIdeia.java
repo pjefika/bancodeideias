@@ -1,4 +1,4 @@
-package bancodeideias.model.entities;
+package bancodeideias.model.enums;
 
 import java.util.ArrayList;
 import java.util.List;

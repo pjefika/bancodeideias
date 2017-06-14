@@ -10,13 +10,13 @@
 
 
 <div class="page-header">
-    <h1>Idéias enviadas</h1>
+    <h1>Ideias enviadas</h1>
 </div>
 <table class="table table-bordered">
     <thead>
         <tr>
             <th>Título</th>
-            <th>Idéia</th>
+            <th>Ideia</th>
             <th>Ação</th>
         </tr>
     </thead>

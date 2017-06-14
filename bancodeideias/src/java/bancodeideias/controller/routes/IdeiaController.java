@@ -4,7 +4,7 @@ import bancodeideias.dal.IdeiaDAO;
 import bancodeideias.dal.InterfaceDAO;
 import bancodeideias.model.annotation.Admin;
 import bancodeideias.model.annotation.Logado;
-import bancodeideias.model.entities.StatusIdeia;
+import bancodeideias.model.enums.StatusIdeia;
 import bancodeideias.model.entitiy.Ideia;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;

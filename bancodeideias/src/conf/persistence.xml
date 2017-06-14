@@ -5,6 +5,7 @@
     <jta-data-source>java:/co_hsqldb</jta-data-source>
     <properties>
       <property name="hibernate.id.new_generator_mappings" value="false"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
     </properties>
   </persistence-unit>
   <!--    <persistence-unit name="bancodeideiasPU" transaction-type="RESOURCE_LOCAL">

@@ -1,7 +1,7 @@
 package bancodeideias.model.entitiy;
 
-import bancodeideias.model.entities.StatusIdeia;
-import java.util.Date;
+import bancodeideias.model.enums.StatusIdeia;
+import java.util.Calendar;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -33,6 +33,37 @@ public class Ideia extends AbstractEntity {
     private String realizar;
 
     private StatusIdeia status;
+    
+    private String votoP;
+
+    public String getVotoP() {
+        return votoP;
+    }
+
+    public void setVotoP(String votoP) {
+        this.votoP = votoP;
+    }
+
+    public String getVotoN() {
+        return votoN;
+    }
+
+    public void setVotoN(String votoN) {
+        this.votoN = votoN;
+    }
+    
+    private String votoN;
+
+    @Column(length = 255555)
+    @NotEmpty(message = "Campo requerido!")
+    private String descComo;
+
+    private Calendar dataCadastro;
+
+//    private List<Curtida> curtidas;
+    public Ideia() {
+        super();
+    }
 
     public String getRealizar() {
         return realizar;
@@ -42,21 +73,6 @@ public class Ideia extends AbstractEntity {
         this.realizar = realizar;
     }
 
-    @Column(length = 255555)
-    @NotEmpty(message = "Campo requerido!")
-    private String descComo;
-
-    @NotNull
-    private Date dataCadastro;
-
-//    private List<Curtida> curtidas;
-    public Ideia() {
-        super();
-    }
-
-//    public String desc(){
-//        
-//    }
     public String getLoginCriador() {
         return loginCriador;
     }
@@ -96,11 +112,11 @@ public class Ideia extends AbstractEntity {
 //    public void setCurtidas(List<Curtida> curtidas) {
 //        this.curtidas = curtidas;
 //    }
-    public Date getDataCadastro() {
+    public Calendar getDataCadastro() {
         return dataCadastro;
     }
 
-    public void setDataCadastro(Date dataCadastro) {
+    public void setDataCadastro(Calendar dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
 

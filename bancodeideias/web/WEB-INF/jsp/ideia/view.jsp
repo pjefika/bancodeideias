@@ -23,7 +23,7 @@
         <br><br>
         <div>
             <label class="control-label">
-                Descreva sua idéia detalhadamente:
+                Descreva sua ideia detalhadamente:
             </label>
             <br>
             <span>${i.descricao}</span>
@@ -31,7 +31,7 @@
         <br><br>
         <div>
             <label class="control-label">
-                O que deverá ser realizado para que a sua idéia seja implantada?
+                O que deverá ser realizado para que a sua ideia seja implantada?
             </label>
             <br>
             <span>${i.realizar}</span>
@@ -39,7 +39,7 @@
         <br><br>
         <div>
             <label>
-                A sua idéia irá proporcionar ganhos nos indicadores operacionais do CO? Detalhe quais são:
+                A sua ideia irá proporcionar ganhos nos indicadores operacionais do CO? Detalhe quais são:
             </label>
             <br>
             <span>${i.ganhos}</span>
@@ -56,9 +56,20 @@
 
         </div>
     </div>
-    <a class="glyphicon glyphicon-thumbs-up btn-lg" href="" role="button btn"></a><span class="badge">1</span>
+    <a class="glyphicon glyphicon-thumbs-up btn-lg" href="" id=addCount alue="Adicionar Count" role="button btn"></a><span class="badge">$votosP</span>
     <br>
     <a class="glyphicon glyphicon-thumbs-down btn-lg" href="" role="button btn-lg"></a><span class="badge"></span>
 
+    
+    
+    <input type=button id=addCount value="Adicionar Count">
+
+<script>
+var count = 0;
+$('#addCount').click(function(){
+  span class="badge";
+  count++;
+});
 
 
+</script>

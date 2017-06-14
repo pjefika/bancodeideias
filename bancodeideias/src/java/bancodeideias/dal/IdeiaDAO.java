@@ -7,7 +7,7 @@ package bancodeideias.dal;
 
 import bancodeideias.model.annotation.Admin;
 import bancodeideias.model.annotation.Logado;
-import bancodeideias.model.entities.StatusIdeia;
+import bancodeideias.model.enums.StatusIdeia;
 import bancodeideias.model.entitiy.Ideia;
 import bancodeideias.model.viewmodel.Relatorio;
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ public class IdeiaDAO extends AbstractDAO implements InterfaceDAO<Ideia> {
     @Override
     @Transactional
     public Ideia cadastrar(Ideia t) {
-        t.setDataCadastro(Calendar.getInstance().getTime());
+        t.setDataCadastro(Calendar.getInstance());
 //        entityManager.getTransaction().begin();
         super.persist(t);
 //        entityManager.getTransaction().commit();

@@ -14,7 +14,7 @@
            prefix="decorator"%>
 
 <div class="page-header">
-    <h2>Minhas Idéias</h2>
+    <h2>Minhas Ideias</h2>
 </div>
 
 <div class="row">

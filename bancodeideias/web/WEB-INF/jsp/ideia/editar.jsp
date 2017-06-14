@@ -4,7 +4,7 @@
            prefix="decorator"%>
 
 <div class="page-header">
-    <h2>Editar Idéia</h2>
+    <h2>Editar Ideia</h2>
 </div>
 
 <form action="${linkTo[IdeiaController].updateStatus}" method="post"  style="width: 100%;"> 
@@ -21,7 +21,7 @@
             <br><br>
             <div>
                 <label class="control-label">
-                    Descreva sua idéia detalhadamente.
+                    Descreva sua ideia detalhadamente.
                 </label>
                 <br>
                 <span>${i.descricao}</span>
@@ -29,7 +29,7 @@
             <br><br>
             <div>
                 <label class="control-label">
-                    O que deverá ser realizado para que a sua idéia seja implantada?
+                    O que deverá ser realizado para que a sua ideia seja implantada?
                 </label>
                 <br>
                 <span>${i.realizar}</span>
@@ -37,7 +37,7 @@
             <br><br>
             <div>
                 <label>
-                    A sua idéia irá proporcionar ganhos nos indicadores operacionais do CO? Detalhe quais são:
+                    A sua ideia irá proporcionar ganhos nos indicadores operacionais do CO? Detalhe quais são:
                 </label>
                 <br>
                 <span>${i.ganhos}</span>

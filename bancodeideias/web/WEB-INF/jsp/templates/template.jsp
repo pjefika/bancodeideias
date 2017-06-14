@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <title><decorator:title default="BaixaOffLine"/></title>
+        <title><decorator:title default="Banco de Ideias"/></title>
         <meta charset="utf-8">
 
         <!-- import CSS -->
@@ -30,7 +30,7 @@
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
                     </button>
-                    <a class="navbar-brand" href="${linkTo[HomeController].index}">Banco de Idéias CO</a>
+                    <a class="navbar-brand" href="${linkTo[HomeController].index}">Banco de Ideias CO</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <c:if test="${sessionUsuarioEfika.logado}">
@@ -38,7 +38,7 @@
                             <li><a href="${linkTo[HomeController].index()}">Home</a></li>
 
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastro de Idéias<span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastro de Ideias<span class="caret"></span></a>
                                 <ul class="dropdown-menu" >
                                     <li><a href="${linkTo[IdeiaController].form}">Cadastre sua Ideia</a></li>
                                     <li><a href="${linkTo[IdeiaController].minhasIdeias}">Minhas Ideias</a></li>
@@ -50,7 +50,7 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administração<span class="caret"></span></a>
                                 <ul class="dropdown-menu" >
-                                    <li><a href="${linkTo[IdeiaController].painel}">Análise de Idéias</a></li>
+                                    <li><a href="${linkTo[IdeiaController].painel}">Análise de Ideias</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="${linkTo[RelatorioController].create()}"> Relatórios</a></li>
                                 </ul>

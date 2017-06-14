@@ -4,10 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "BANCOIDEIAS_CURTIDA")
-public class Curtida extends AbstractLogEntity {
+@Table(name = "BANCOIDEIAS_VISUALIZACAO_IDEIA")
+public class VisualizacaoIdeia extends AbstractLogEntity {
 
-    public Curtida() {
+    public VisualizacaoIdeia() {
         super();
     }
  
